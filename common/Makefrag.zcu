@@ -207,8 +207,9 @@ CXXFLAGS_FPGA = -O2 -std=c++11 -Wall -L$(common_build) -lfesvr \
 $(fesvr-lib):
 	mkdir -p $(common_build)
 	cd $(common_build) && \
-	$(ROCKET_DIR)/riscv-tools/riscv-fesvr/configure && make libfesvr.so
-	#	--host=aarch64-linux-gnu  
+	$(ROCKET_DIR)/riscv-tools/riscv-fesvr/configure \
+		--host=aarch64-linux-gnu && \
+	make libfesvr.so
 
 $(common_build)/$(fesvr-main): $(fesvr-lib) $(fesvr-srcs) $(fesvr-hdrs)
 	$(CXX_FPGA) $(CXXFLAGS_FPGA) -o $(common_build)/$(fesvr-main) $(fesvr-srcs)
