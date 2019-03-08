@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2017.1
+set scripts_vivado_version 2018.1
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -43,8 +43,8 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
-   create_project project_1 myproj -part xczu9eg-ffvb1156-2-i
-   set_property BOARD_PART xilinx.com:zcu102:part0:3.0 [current_project]
+   create_project project_1 myproj -part xczu9eg-ffvb1156-2-e
+   set_property BOARD_PART xilinx.com:zcu102:part0:3.2 [current_project]
 }
 
 
@@ -223,7 +223,7 @@ CONFIG.C_AUX_RESET_HIGH {0} \
  ] $proc_sys_reset_0
 
   # Create instance: processing_system7_0, and set properties
-  set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.0 processing_system7_0 ]
+  set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.2 processing_system7_0 ]
   set_property -dict [ list \
 CONFIG.PSU_BANK_0_IO_STANDARD {LVCMOS18} \
 CONFIG.PSU_BANK_1_IO_STANDARD {LVCMOS18} \

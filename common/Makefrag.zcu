@@ -113,6 +113,7 @@ vivado: $(project)
 	vivado $(project) &
 
 bitstream = $(proj_name)/$(proj_name).runs/impl_1/rocketchip_wrapper.bit
+
 $(bitstream): src/tcl/make_bitstream_$(CONFIG).tcl $(verilog_srcs) src/constrs/base.xdc | $(project)
 	vivado -mode tcl -source src/tcl/make_bitstream_$(CONFIG).tcl
 bitstream: $(bitstream)
@@ -131,7 +132,7 @@ pl_proj = petalinux_proj
 pl_output_dir = $(sub_base_dir)/$(petalinux_proj)/images/linux
 config_dir = $(sub_base_dir)/soft_config
 pl_srcs = $(config_dir)/petalinux_bd.sh $(config_dir)/config $(config_dir)/rootfs_config \
-	$(config_dir)/system-user.dtsi $(config_dir)/xilinx-zcu102-2017.1-final.bsp \
+	$(config_dir)/system-user.dtsi $(config_dir)/xilinx-zcu102-v2017.1-final.bsp \
 	$(config_dir)/rocketchip_wrapper.bit $(config_dir)/rocketchip_wrapper.hdf
 
 export_hw : $(exported_files)
@@ -206,9 +207,8 @@ CXXFLAGS_FPGA = -O2 -std=c++11 -Wall -L$(common_build) -lfesvr \
 $(fesvr-lib):
 	mkdir -p $(common_build)
 	cd $(common_build) && \
-	$(ROCKET_DIR)/riscv-tools/riscv-fesvr/configure \
-		--host=aarch64-linux-gnu && \
-	make libfesvr.so
+	$(ROCKET_DIR)/riscv-tools/riscv-fesvr/configure && make libfesvr.so
+	#	--host=aarch64-linux-gnu  
 
 $(common_build)/$(fesvr-main): $(fesvr-lib) $(fesvr-srcs) $(fesvr-hdrs)
 	$(CXX_FPGA) $(CXXFLAGS_FPGA) -o $(common_build)/$(fesvr-main) $(fesvr-srcs)
