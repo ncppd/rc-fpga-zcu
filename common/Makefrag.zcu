@@ -132,7 +132,7 @@ pl_proj = petalinux_proj
 pl_output_dir = $(sub_base_dir)/$(petalinux_proj)/images/linux
 config_dir = $(sub_base_dir)/soft_config
 pl_srcs = $(config_dir)/petalinux_bd.sh $(config_dir)/config $(config_dir)/rootfs_config \
-	$(config_dir)/system-user.dtsi $(config_dir)/xilinx-zcu102-v2017.1-final.bsp \
+	$(config_dir)/system-user.dtsi $(config_dir)/xilinx-zcu102-v2018.2-final.bsp \
 	$(config_dir)/rocketchip_wrapper.bit $(config_dir)/rocketchip_wrapper.hdf
 
 export_hw : $(exported_files)
