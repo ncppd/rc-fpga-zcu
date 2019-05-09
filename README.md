@@ -1,7 +1,7 @@
 Rocket Chip on Zynq Ultrascale+ ZCU102 FPGA 
 ===================================================
 
-### This repository assumes Vivado 2018.3 and Petalinux 2018.2 are installed. Please refer to https://github.com/li3tuo4/rc-zcu102-tutorial for how to use this repository.
+### This repository assumes Vivado 2018.1 and Petalinux 2018.2 are installed. Please refer to https://github.com/li3tuo4/rc-zcu102-tutorial for how to use this repository.
 
 ### This port currently can run at 180 MHz at maximum on ZCU102. ZCU102 can at least accommodate quad-RISC-V-core rocket-chip (more cores are not tried yet). The build flow is a bit different from the orginal one. Please feel free to contribute. Please let me know if you meet any problem. 
 
