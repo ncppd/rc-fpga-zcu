@@ -5,25 +5,25 @@
 		stdout-path = "serial0:115200n8";
 	};
 
-        htif_0: htif@a0000000 {
-        #address-cells = <1>;
-        #size-cells = <1>;
-        compatible = "generic-uio", "uio", "uio_pdrv";
-        reg = <0x0 0xa0000000 0x0 0x1000>;
-        };
-gpio-keys {
- sw19 {
- compatible = "gpio-keys";
- label = "sw19";
- status = "disabled";
- };
- };
- leds {
- compatible = "gpio-leds";
- heartbeat_led {
- label = "heartbeat";
- linux,default-trigger = "heartbeat";
- status = "disabled";
-};
- };
+htif_0: htif@a0000000 {
+#address-cells = <1>;
+#size-cells = <1>;
+		compatible = "generic-uio", "uio", "uio_pdrv";
+		reg = <0x0 0xa0000000 0x0 0x1000>;
+	};
+	gpio-keys {
+		sw19 {
+			compatible = "gpio-keys";
+			label = "sw19";
+			status = "disabled";
+		};
+	};
+	leds {
+		compatible = "gpio-leds";
+		heartbeat_led {
+			label = "heartbeat";
+			linux,default-trigger = "heartbeat";
+			status = "disabled";
+		};
+	};
 };

@@ -11,7 +11,10 @@ device_tree=$config_dir/system-user.dtsi
 fpga=$config_dir/rocketchip_wrapper.bit
 
 #require: fpga implemented (bitstream) and exported (*.hdf)
-petalinux-create -t project -s $bsp -n $proj
+if [ ! -d "$proj_dir" ]; then 
+	petalinux-create -t project -s $bsp -n $proj
+fi
+
 cd $proj_dir
 #copy config file to the folder and replace the default config file
 cp -v $gen_config $proj_dir/project-spec/configs/
