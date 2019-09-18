@@ -5,12 +5,25 @@
 		stdout-path = "serial0:115200n8";
 	};
 
-htif_0: htif@a0000000 {
-#address-cells = <1>;
-#size-cells = <1>;
+	htif_0: htif@a0000000 {
+		#address-cells = <1>;
+		#size-cells = <1>;
 		compatible = "generic-uio", "uio", "uio_pdrv";
 		reg = <0x0 0xa0000000 0x0 0x1000>;
 	};
+/*	reserved-memory {
+      		#address-cells = <2>;
+      		#size-cells = <2>;
+      		ranges;
+  
+      		reserved: buffer@0 {
+         		compatible = "shared-dma-pool";
+         		reusable;
+         		reg = <0x0 0x800000000 0x0 0x40000000>;
+         		linux,cma-default;
+      		};
+   	};
+*/
 	gpio-keys {
 		sw19 {
 			compatible = "gpio-keys";

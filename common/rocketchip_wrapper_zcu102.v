@@ -200,9 +200,13 @@ input UART_rxd;
   wire [31:0] mem_awaddr;
 
   // Memory given to Rocket is the upper 256 MB of the 512 MB DRAM
-  assign S_AXI_araddr = {4'd1, mem_araddr[27:0]};
-  assign S_AXI_awaddr = {4'd1, mem_awaddr[27:0]};
+  // assign S_AXI_araddr = {4'd1, mem_araddr[27:0]};
+  // assign S_AXI_awaddr = {4'd1, mem_awaddr[27:0]};
 
+  // FIXME ncppd Give 512MB RAM to Rocket
+  assign S_AXI_araddr = {3'd1, mem_araddr[28:0]};
+  assign S_AXI_awaddr = {3'd1, mem_awaddr[28:0]};
+  
   Top top(
    .clock(host_clk),
    .reset(reset),
