@@ -34,14 +34,18 @@ class WithNMediumCores(n: Int) extends Config((site, here, up) => {
         rowBits = site(SystemBusKey).beatBytes*8,
         nSets = 64,
         nWays = 1,
-        nTLBEntries = 4,
+        nTLBWays = 4,
+        nTLBSets = 1,
+     //   nTLBEntries = 4,
         nMSHRs = 0,
         blockBytes = site(CacheBlockBytes))),
       icache = Some(ICacheParams(
         rowBits = site(SystemBusKey).beatBytes*8,
         nSets = 64,
         nWays = 1,
-        nTLBEntries = 4,
+        nTLBWays = 4,
+        nTLBSets = 1,
+    //    nTLBEntries = 4,
         blockBytes = site(CacheBlockBytes))))
     List.tabulate(n)(i => medium.copy(hartId = i))
   }
