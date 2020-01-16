@@ -17,7 +17,7 @@
 	url = https://github.com/ucb-bar/fpga-images-zc706.git
 [submodule "rocket-chip"]
 	path = rocket-chip
-	url = https://github.com/li3tuo4/rocket-chip-zcu.git
+	url = https://github.com/ncppd/rocket-chip-tlb-generator.git
 [submodule "testchipip"]
 	path = testchipip
 	url = https://github.com/ucb-bar/testchipip.git
